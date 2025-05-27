@@ -21,7 +21,12 @@ export function middleware(request: NextRequest) {
   const authPaths = [
     "/api/auth/setup",
     "/api/auth/logout",
-    // Add other auth-related paths as needed
+    "/api/auth/login",
+    "/api/auth/callback",
+    "/api/auth/me",
+    "/api/auth/register",
+    "/api/auth/refresh",
+    "/api/auth/verify",
   ];
 
   // Check if the current path needs CORS headers
@@ -35,7 +40,7 @@ export function middleware(request: NextRequest) {
         : allowedOrigins[0],
       "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
       "Access-Control-Allow-Headers":
-        "Content-Type, Authorization, next-router-prefetch, next-router-state-tree, rsc",
+        "Content-Type, Authorization, next-router-prefetch, next-router-state-tree, rsc, X-Requested-With, Accept, Origin, X-CSRF-Token, X-Kinde-Client-Id, X-Kinde-Client-Secret",
       "Access-Control-Allow-Credentials": "true",
       "Access-Control-Max-Age": "86400", // 24 hours
     };
